@@ -3,7 +3,7 @@ using System.Data.SQLite;
 
 namespace PassMan
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private void LoadPasswords()
         {
@@ -97,7 +97,7 @@ namespace PassMan
             dgvPasswords.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             InitializeFormComponents();
@@ -157,7 +157,7 @@ namespace PassMan
         {
             if (dgvPasswords.SelectedRows.Count > 0)
             {
-                
+
                 int id = Convert.ToInt32(dgvPasswords.SelectedRows[0].Cells["Id"].Value);
                 DeletePassword(id);
             }
@@ -170,7 +170,16 @@ namespace PassMan
                     MessageBoxIcon.Information);
             }
         }
+
+        private void Btn_newCategory_Click(object sender, EventArgs e)
+        {
+            using (var form = new CategoryForm())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    //LoadCategories();
+                }
+            }
+        }
     }
-
-
 }

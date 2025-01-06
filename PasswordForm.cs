@@ -19,6 +19,7 @@ namespace PassMan
         private TextBox txtPassword;
         private TextBox txtNotes;
         private CheckBox chkShowPassword;
+        private ComboBox cmbCategory;
 
         public PasswordForm(Password password = null)
         {
@@ -50,6 +51,18 @@ namespace PassMan
             Label lblUsername = new Label { Text = "Usuario:", Location = new Point(20, 60) };
             Label lblPassword = new Label { Text = "Contraseña:", Location = new Point(20, 100) };
             Label lblNotes = new Label { Text = "Notas:", Location = new Point(20, 140) };
+            Label lblCategory = new Label { Text = "Categoría:", Location = new Point(20, 180) };
+
+            //ComboBox
+            cmbCategory = new ComboBox
+            {
+                Location = new Point(120, 180),
+                Width = 200,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                DisplayMember = "Name",
+                ValueMember = "Id"
+            };
+
 
             // TextBoxes
             txtTitle = new TextBox { Location = new Point(120, 20), Width = 200 };
@@ -82,7 +95,6 @@ namespace PassMan
                 DialogResult = DialogResult.Cancel
             };
 
-            // Add controls to form
             this.Controls.AddRange(new Control[] {
                 lblTitle, lblUsername, lblPassword, lblNotes,
                 txtTitle, txtUsername, txtPassword, txtNotes,
@@ -94,7 +106,7 @@ namespace PassMan
         {
             txtTitle.Text = currentPassword.Title;
             txtUsername.Text = currentPassword.Username;
-            txtPassword.Text = currentPassword.EncryptedPassword; // Aquí deberías desencriptar
+            txtPassword.Text = currentPassword.EncryptedPassword;
             txtNotes.Text = currentPassword.Notes;
         }
 

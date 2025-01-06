@@ -1,6 +1,6 @@
 ﻿namespace PassMan
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -32,7 +32,6 @@
             dgvPasswords = new DataGridView();
             Btn_Newpass = new Button();
             Btn_newCategory = new Button();
-            Btn_Options = new Button();
             comboBox1 = new ComboBox();
             button1 = new Button();
             button2 = new Button();
@@ -50,8 +49,11 @@
             // 
             // dgvPasswords
             // 
+            dgvPasswords.BackgroundColor = SystemColors.ButtonShadow;
+            dgvPasswords.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
             dgvPasswords.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPasswords.Location = new Point(0, 3);
+            dgvPasswords.MultiSelect = false;
             dgvPasswords.Name = "dgvPasswords";
             dgvPasswords.Size = new Size(477, 360);
             dgvPasswords.TabIndex = 0;
@@ -68,28 +70,20 @@
             // 
             // Btn_newCategory
             // 
-            Btn_newCategory.Location = new Point(292, 11);
+            Btn_newCategory.Location = new Point(165, 12);
             Btn_newCategory.Name = "Btn_newCategory";
             Btn_newCategory.Size = new Size(119, 23);
             Btn_newCategory.TabIndex = 2;
             Btn_newCategory.Text = "New category";
             Btn_newCategory.UseVisualStyleBackColor = true;
-            // 
-            // Btn_Options
-            // 
-            Btn_Options.Location = new Point(417, 11);
-            Btn_Options.Name = "Btn_Options";
-            Btn_Options.Size = new Size(75, 23);
-            Btn_Options.TabIndex = 3;
-            Btn_Options.Text = "Options";
-            Btn_Options.UseVisualStyleBackColor = true;
+            Btn_newCategory.Click += Btn_newCategory_Click;
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(12, 12);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
+            comboBox1.Size = new Size(147, 23);
             comboBox1.TabIndex = 4;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -113,7 +107,7 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // Form1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -122,10 +116,9 @@
             Controls.Add(button1);
             Controls.Add(comboBox1);
             Controls.Add(Btn_Newpass);
-            Controls.Add(Btn_Options);
             Controls.Add(Btn_newCategory);
             Controls.Add(panel1);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Form1";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvPasswords).EndInit();
@@ -137,7 +130,6 @@
         private Panel panel1;
         private Button Btn_Newpass;
         private Button Btn_newCategory;
-        private Button Btn_Options;
         private DataGridView dgvPasswords;
         private ComboBox comboBox1;
         private Button button1;
